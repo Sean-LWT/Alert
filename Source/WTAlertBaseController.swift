@@ -33,7 +33,7 @@ public class WTAlertBaseController: UIViewController {
     private var animate = Animate.init()
 
     /// alert配置
-    var config: WTAlertConfig = .init()
+    public var config: WTAlertConfig = .init()
 
     /// 背景关闭按钮
     let maskView = UIView.init()
