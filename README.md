@@ -1,2 +1,2 @@
 # Alert
-类似UIAlertController的自定义Alert样式
+一款类似UIAlertController的自定义Alert样式
