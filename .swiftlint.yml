@@ -1,0 +1,24 @@
+excluded: # 执行 linting 时忽略的路径。 优先级比 `included` 更高。
+  - Carthage
+  - Pods
+
+disabled_rules:
+  - trailing_whitespace
+  - for_where
+  - force_cast
+
+line_length: 500
+
+function_body_length: 100
+
+cyclomatic_complexity: 60
+
+file_length: 2000
+
+function_body_length: 300
+
+type_body_length: 1500
+
+nesting:
+  type_level: 3
+  statement_level: 3

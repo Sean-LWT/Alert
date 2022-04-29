@@ -71,12 +71,14 @@ public class WTAlertController: WTAlertBaseController {
         super.setUI()
         self.contentView.clipsToBounds = true
         if #available(iOS 13.0, *) {
+            let contentColor = self.config.contentColor
+            let contentDarkColor = self.config.contentDarkColor
             self.contentView.backgroundColor = .init(dynamicProvider: { traitCollection in
                 switch traitCollection.userInterfaceStyle {
                 case .light:
-                    return self.config.contentColor
+                    return contentColor
                 default:
-                    return self.config.contentDarkColor
+                    return contentDarkColor
                 }
             })
         } else {
@@ -95,12 +97,14 @@ public class WTAlertController: WTAlertBaseController {
         }
         // 分割线
         if #available(iOS 13.0, *) {
+            let cropColor = self.config.cropColor
+            let cropDarkColor = self.config.cropDarkColor
             self.lineView.backgroundColor = UIColor.init(dynamicProvider: { traitCollection in
                 switch traitCollection.userInterfaceStyle {
                 case .light:
-                    return self.config.cropColor
+                    return cropColor
                 default:
-                    return self.config.cropDarkColor
+                    return cropDarkColor
                 }
             })
         } else {
@@ -245,12 +249,14 @@ public class WTAlertController: WTAlertBaseController {
             paragraphStyle.lineSpacing = 2
             paragraphStyle.alignment = .center
             if #available(iOS 13.0, *) {
+                let titleColor = self.config.titleColor
+                let titleDarkColor = self.config.titleDarkColor
                 titlelabel?.attributedText = .init(string: alertTitle, attributes: [.font: self.config.titleFont, .foregroundColor: UIColor.init(dynamicProvider: { traitCollection in
                     switch traitCollection.userInterfaceStyle {
                     case .light:
-                        return self.config.titleColor
+                        return titleColor
                     default:
-                        return self.config.titleDarkColor
+                        return titleDarkColor
                     }
                 }), .paragraphStyle: paragraphStyle])
             } else {
@@ -269,12 +275,14 @@ public class WTAlertController: WTAlertBaseController {
             paragraphStyle.lineSpacing = 2
             paragraphStyle.alignment = .center
             if #available(iOS 13.0, *) {
+                let messageColor = self.config.messageColor
+                let messageDarkColor = self.config.messageDarkColor
                 subTitlelabel?.attributedText = .init(string: alertMessage, attributes: [.font: self.config.messageFont, .foregroundColor: UIColor.init(dynamicProvider: { traitCollection in
                     switch traitCollection.userInterfaceStyle {
                     case .light:
-                        return self.config.messageColor
+                        return messageColor
                     default:
-                        return self.config.messageDarkColor
+                        return messageDarkColor
                     }
                 }), .paragraphStyle: paragraphStyle])
             } else {
@@ -343,12 +351,14 @@ public class WTAlertController: WTAlertBaseController {
                     case .default:
                         actionBtn.label.font = self.config.alertActionFont
                         if #available(iOS 13.0, *) {
+                            let alertActionColor = self.config.alertActionColor
+                            let alertActionDarkColor = self.config.alertActionDarkColor
                             actionBtn.label.textColor = UIColor.init(dynamicProvider: { traitCollection in
                                 switch traitCollection.userInterfaceStyle {
                                 case .light:
-                                    return self.config.alertActionColor
+                                    return alertActionColor
                                 default:
-                                    return self.config.alertActionDarkColor
+                                    return alertActionDarkColor
                                 }
                             })
                         } else {
@@ -357,12 +367,14 @@ public class WTAlertController: WTAlertBaseController {
                     case .cancel:
                         actionBtn.label.font = self.config.cancelAlertActionFont
                         if #available(iOS 13.0, *) {
+                            let cancelAlertActionColor = self.config.cancelAlertActionColor
+                            let cancelAlertActionDarkColor = self.config.cancelAlertActionDarkColor
                             actionBtn.label.textColor = UIColor.init(dynamicProvider: { traitCollection in
                                 switch traitCollection.userInterfaceStyle {
                                 case .light:
-                                    return self.config.cancelAlertActionColor
+                                    return cancelAlertActionColor
                                 default:
-                                    return self.config.cancelAlertActionDarkColor
+                                    return cancelAlertActionDarkColor
                                 }
                             })
                         } else {
@@ -371,12 +383,14 @@ public class WTAlertController: WTAlertBaseController {
                     case .destructive:
                         actionBtn.label.font = self.config.destructiveAlertActionFont
                         if #available(iOS 13.0, *) {
+                            let destructiveAlertActionColor = self.config.destructiveAlertActionColor
+                            let destructiveAlertActionDarkColor = self.config.destructiveAlertActionDarkColor
                             actionBtn.label.textColor = UIColor.init(dynamicProvider: { traitCollection in
                                 switch traitCollection.userInterfaceStyle {
                                 case .light:
-                                    return self.config.destructiveAlertActionColor
+                                    return destructiveAlertActionColor
                                 default:
-                                    return self.config.destructiveAlertActionDarkColor
+                                    return destructiveAlertActionDarkColor
                                 }
                             })
                         } else {
@@ -389,12 +403,14 @@ public class WTAlertController: WTAlertBaseController {
                     case .default:
                         actionBtn.label.font = self.config.actionSheetActionFont
                         if #available(iOS 13.0, *) {
+                            let actionSheetActionColor = self.config.actionSheetActionColor
+                            let actionSheetActionDarkColor = self.config.actionSheetActionDarkColor
                             actionBtn.label.textColor = UIColor.init(dynamicProvider: { traitCollection in
                                 switch traitCollection.userInterfaceStyle {
                                 case .light:
-                                    return self.config.actionSheetActionColor
+                                    return actionSheetActionColor
                                 default:
-                                    return self.config.actionSheetActionDarkColor
+                                    return actionSheetActionDarkColor
                                 }
                             })
                         } else {
@@ -403,12 +419,14 @@ public class WTAlertController: WTAlertBaseController {
                     case .cancel:
                         actionBtn.label.font = self.config.cancelActionSheetActionFont
                         if #available(iOS 13.0, *) {
+                            let cancelActionSheetActionColor = self.config.cancelActionSheetActionColor
+                            let cancelActionSheetActionDarkColor = self.config.cancelActionSheetActionDarkColor
                             actionBtn.label.textColor = UIColor.init(dynamicProvider: { traitCollection in
                                 switch traitCollection.userInterfaceStyle {
                                 case .light:
-                                    return self.config.cancelActionSheetActionColor
+                                    return cancelActionSheetActionColor
                                 default:
-                                    return self.config.cancelActionSheetActionDarkColor
+                                    return cancelActionSheetActionDarkColor
                                 }
                             })
                         } else {
@@ -417,12 +435,14 @@ public class WTAlertController: WTAlertBaseController {
                     case .destructive:
                         actionBtn.label.font = self.config.destructiveActionSheetActionFont
                         if #available(iOS 13.0, *) {
+                            let destructiveActionSheetActionColor = self.config.destructiveActionSheetActionColor
+                            let destructiveActionSheetActionDarkColor = self.config.destructiveActionSheetActionDarkColor
                             actionBtn.label.textColor = UIColor.init(dynamicProvider: { traitCollection in
                                 switch traitCollection.userInterfaceStyle {
                                 case .light:
-                                    return self.config.destructiveActionSheetActionColor
+                                    return destructiveActionSheetActionColor
                                 default:
-                                    return self.config.destructiveActionSheetActionDarkColor
+                                    return destructiveActionSheetActionDarkColor
                                 }
                             })
                         } else {
@@ -467,12 +487,14 @@ public class WTAlertController: WTAlertBaseController {
                 let lineView = UIView.init()
                 self.actionView.addSubview(lineView)
                 if #available(iOS 13.0, *) {
+                    let cropColor = self.config.cropColor
+                    let cropDarkColor = self.config.cropDarkColor
                     lineView.backgroundColor = UIColor.init(dynamicProvider: { traitCollection in
                         switch traitCollection.userInterfaceStyle {
                         case .light:
-                            return self.config.cropColor
+                            return cropColor
                         default:
-                            return self.config.cropDarkColor
+                            return cropDarkColor
                         }
                     })
                 } else {
@@ -484,12 +506,14 @@ public class WTAlertController: WTAlertBaseController {
             let lineView = UIView.init()
             self.actionView.addSubview(lineView)
             if #available(iOS 13.0, *) {
+                let cropColor = self.config.cropColor
+                let cropDarkColor = self.config.cropDarkColor
                 lineView.backgroundColor = UIColor.init(dynamicProvider: { traitCollection in
                     switch traitCollection.userInterfaceStyle {
                     case .light:
-                        return self.config.cropColor
+                        return cropColor
                     default:
-                        return self.config.cropDarkColor
+                        return cropDarkColor
                     }
                 })
             } else {
@@ -509,12 +533,14 @@ public class WTAlertController: WTAlertBaseController {
                     let lineView = UIView.init()
                     self.actionView.addSubview(lineView)
                     if #available(iOS 13.0, *) {
+                        let cropColor = self.config.cropColor
+                        let cropDarkColor = self.config.cropDarkColor
                         lineView.backgroundColor = UIColor.init(dynamicProvider: { traitCollection in
                             switch traitCollection.userInterfaceStyle {
                             case .light:
-                                return self.config.cropColor
+                                return cropColor
                             default:
-                                return self.config.cropDarkColor
+                                return cropDarkColor
                             }
                         })
                     } else {
@@ -538,12 +564,14 @@ public class WTAlertController: WTAlertBaseController {
                     let lineView = UIView.init()
                     self.actionView.addSubview(lineView)
                     if #available(iOS 13.0, *) {
+                        let cancelCropColor = self.config.cancelCropColor
+                        let cancelCropDarkColor = self.config.cancelCropDarkColor
                         lineView.backgroundColor = UIColor.init(dynamicProvider: { traitCollection in
                             switch traitCollection.userInterfaceStyle {
                             case .light:
-                                return self.config.cancelCropColor
+                                return cancelCropColor
                             default:
-                                return self.config.cancelCropDarkColor
+                                return cancelCropDarkColor
                             }
                         })
                     } else {
@@ -555,12 +583,14 @@ public class WTAlertController: WTAlertBaseController {
                     let lineView = UIView.init()
                     self.actionView.addSubview(lineView)
                     if #available(iOS 13.0, *) {
+                        let cropColor = self.config.cropColor
+                        let cropDarkColor = self.config.cropDarkColor
                         lineView.backgroundColor = UIColor.init(dynamicProvider: { traitCollection in
                             switch traitCollection.userInterfaceStyle {
                             case .light:
-                                return self.config.cropColor
+                                return cropColor
                             default:
-                                return self.config.cropDarkColor
+                                return cropDarkColor
                             }
                         })
                     } else {
