@@ -13,13 +13,11 @@ public class WTAlertAction {
 
     public typealias Handler = (WTAlertAction) -> Void
 
-    /// 唯一标识
     public let identify = UUID.init().uuidString
 
-    /// 自定义UI block
+    /// Custom UI block
     private(set) var customBlock: CustomBlock
 
-    /// 回调 block
     private(set) var handler: Handler?
 
     public enum Style {
@@ -27,7 +25,6 @@ public class WTAlertAction {
         case cancel
         case destructive
     }
-    /// 展示类型
     public let style: Style
 
     public var isEnabled = true

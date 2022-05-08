@@ -23,12 +23,12 @@ public class WTAlertController: WTAlertBaseController {
 
     private let titleView = UIScrollView.init()
     private let actionView = UIScrollView.init()
-    /// titleView原始高度
+    /// TitleView height
     private var titleViewHeight: CGFloat = 0.0
-    /// actionView原始高度
+    /// ActionView height
     private var actionViewHeight: CGFloat = 0.0
 
-    /// title/action分割线
+    /// Title/action split line
     private let lineView = UIView.init()
 
     public convenience init() {
@@ -95,7 +95,7 @@ public class WTAlertController: WTAlertBaseController {
                 self.contentView.frame = .init(x: 0, y: 0, width: min(self.view.bounds.width, self.view.bounds.height), height: 0)
             }
         }
-        // 分割线
+        // Split line
         if #available(iOS 13.0, *) {
             let cropColor = self.config.cropColor
             let cropDarkColor = self.config.cropDarkColor
@@ -113,7 +113,7 @@ public class WTAlertController: WTAlertBaseController {
         self.lineView.isHidden = true
         self.contentView.addSubview(self.lineView)
 
-        // 标题、提示
+        // Title tips
         self.contentView.addSubview(self.titleView)
         self.titleView.alwaysBounceVertical = false
         self.titleView.contentInsetAdjustmentBehavior = .never
@@ -121,7 +121,7 @@ public class WTAlertController: WTAlertBaseController {
         self.setupTitle()
         self.titleViewHeight = self.titleView.bounds.height
 
-        // action
+        // Action
         self.contentView.addSubview(self.actionView)
         self.actionView.alwaysBounceVertical = false
         self.actionView.contentInsetAdjustmentBehavior = .never
@@ -132,10 +132,10 @@ public class WTAlertController: WTAlertBaseController {
         self.layoutContentView()
     }
     func layoutContentView() {
-        // 极限值判断
+        // Limit value judgment
         self.checkLimit()
 
-        // 判断是否需要上下分割线
+        // Split line
         if self.titleView.frame.height > 0 && self.actionView.frame.height > 0 {
             self.lineView.frame = .init(x: 0, y: self.titleView.frame.maxY-0.5, width: self.contentView.frame.width, height: 0.5)
             self.lineView.isHidden = false
@@ -143,7 +143,7 @@ public class WTAlertController: WTAlertBaseController {
             self.lineView.isHidden = true
         }
 
-        // 设置样式
+        // Set style UI
         switch self.style {
         case .alert:
             self.contentView.frame = .init(x: (self.view.bounds.width-self.contentView.frame.width)/2.0, y: (self.view.bounds.height-self.contentView.frame.height)/2.0, width: self.contentView.frame.width, height: self.contentView.frame.height)
@@ -166,7 +166,7 @@ public class WTAlertController: WTAlertBaseController {
         }
     }
 
-    /// 极限值判断
+    /// Limit value judgment
     func checkLimit() {
         let window: UIWindow?
         if #available(iOS 13.0, *) {
@@ -181,14 +181,14 @@ public class WTAlertController: WTAlertBaseController {
                 safeAreaInsets.top = 20
             }
         }
-        // 最大高度
+        // Max height
         let maxHeight = self.view.bounds.height-safeAreaInsets.top-44-safeAreaInsets.bottom
         if self.titleViewHeight + self.actionViewHeight > maxHeight {
-            // 已超过最大限制，需要压缩显示内容
+            // The maximum limit has been exceeded and the display needs to be compressed
             if self.actionViewHeight == 0 {
                 self.titleView.frame.size.height = maxHeight
             } else {
-                // titleView最大高度
+                // TitleView max height
                 let titleViewMaxHeight: CGFloat
                 switch self.style {
                 case .alert:
@@ -197,7 +197,7 @@ public class WTAlertController: WTAlertBaseController {
                     titleViewMaxHeight = maxHeight-55*1.5
                 }
                 if self.titleViewHeight > titleViewMaxHeight {
-                    // 已超过titleView最大高度
+                    // Over titleView max height
                     self.titleView.frame.size.height = titleViewMaxHeight
                 } else {
                     self.titleView.frame.size.height = self.titleViewHeight
@@ -234,12 +234,12 @@ public class WTAlertController: WTAlertBaseController {
         }
     }
 
-    /// 初始化标题提示
+    /// Setup title
     func setupTitle() {
         if self.alertTitle == nil && self.alertMessage == nil && self.configurationHandlers.isEmpty {
             return
         }
-        // 标题
+        // Title
         let titlelabel: UILabel?
         if let alertTitle = self.alertTitle {
             titlelabel = UILabel.init()
@@ -265,7 +265,7 @@ public class WTAlertController: WTAlertBaseController {
         } else {
             titlelabel = nil
         }
-        // 副标题
+        // Subtitle
         let subTitlelabel: UILabel?
         if let alertMessage = self.alertMessage {
             subTitlelabel = UILabel.init()
@@ -291,7 +291,7 @@ public class WTAlertController: WTAlertBaseController {
         } else {
             subTitlelabel = nil
         }
-        // 顶部标题布局
+        // Max width
         let maxWidth = self.titleView.frame.size.width-self.config.titlelabelInset.left-self.config.titlelabelInset.right
         var height: CGFloat = 0
         if let titlelabel = titlelabel, let subTitlelabel = subTitlelabel {
@@ -305,13 +305,13 @@ public class WTAlertController: WTAlertBaseController {
                 height = label.frame.maxY
             }
         }
-        // textFields
+        // TitleViews
         if !self.configurationHandlers.isEmpty {
             var textViewTop = height+5
             self.configurationHandlers.forEach { configurationHandler in
                 let titleView = configurationHandler(maxWidth)
                 if titleView.bounds.size.width != maxWidth {
-                    debugPrint("⚠️自定义控件宽度必须等于\(maxWidth)")
+                    fatalError("⚠️ custom view width must be equal to\(maxWidth)")
                 }
                 self.titleView.addSubview(titleView)
                 titleView.frame = .init(x: self.config.titlelabelInset.left, y: textViewTop+10, width: maxWidth, height: titleView.frame.height)
@@ -320,20 +320,34 @@ public class WTAlertController: WTAlertBaseController {
             }
             height = textViewTop
         }
-        // 底部间隔20
+        // Bottom space 20
         height += 20
         self.titleView.frame.size.height = height
         self.titleView.contentSize = self.titleView.frame.size
     }
 
-    /// 初始化actions
+    /// Setup actions
     func setupAction() {
         if self.actions.isEmpty { return }
         let maxWidth = self.actionView.frame.width
-        /// 创建 actionView
+        /// Create actionView
         let actionItems = self.actions.map { (action) -> WTActionView in
             let customView = action.customBlock(maxWidth)
             if let actionBtn = customView as? WTActionButton {
+                if #available(iOS 13.0, *) {
+                    let actionTouchColor = self.config.actionTouchColor
+                    let actionTouchDarkColor = self.config.actionTouchDarkColor
+                    actionBtn.touchView.backgroundColor = .init(dynamicProvider: { traitCollection in
+                        switch traitCollection.userInterfaceStyle {
+                        case .dark:
+                            return actionTouchDarkColor
+                        default:
+                            return actionTouchColor
+                        }
+                    })
+                } else {
+                    actionBtn.touchView.backgroundColor = self.config.actionTouchColor
+                }
                 let insets: UIEdgeInsets
                 switch self.style {
                 case .alert:
@@ -450,7 +464,7 @@ public class WTAlertController: WTAlertBaseController {
                         }
                     }
                 }
-                // 设置大小
+                // Setup max size
                 var maxSize: CGSize
                 switch self.style {
                 case .alert:
@@ -464,17 +478,16 @@ public class WTAlertController: WTAlertBaseController {
                 return .init(style: action.style, customView: actionBtn)
             } else {
                 if customView.bounds.size.width != maxWidth {
-                    debugPrint("⚠️自定义控件宽度必须等于\(maxWidth)")
-                    customView.bounds.size.width = maxWidth
+                    fatalError("⚠️ custom view width must be equal to\(maxWidth)")
                 }
                 return .init(style: action.style, customView: customView)
             }
         }
-        // 布局actions
+        // Layout actions
         let cancelActions = actionItems.filter { $0.style == .cancel }
         let defaultActions = actionItems.filter { $0.style != .cancel }
         if self.style == .alert && actionItems.count == 2 && actionItems.first!.bounds.size.width <= maxWidth/2.0 && actionItems.last!.bounds.size.width <= maxWidth/2.0 {
-            // 横向布局actionItem
+            // Horizontal layout actionItem
             let actionItems = (cancelActions+defaultActions)
             var actionLeft: CGFloat = 0
             actionItems.forEach { (actionItem) in
@@ -482,7 +495,7 @@ public class WTAlertController: WTAlertBaseController {
                 actionItem.frame = .init(x: actionLeft, y: 0, width: maxWidth/2.0, height: 50)
                 actionLeft += actionItem.frame.size.width
             }
-            // 中分割线
+            // Split line
             if let actionItem = actionItems.first {
                 let lineView = UIView.init()
                 self.actionView.addSubview(lineView)
@@ -502,7 +515,7 @@ public class WTAlertController: WTAlertBaseController {
                 }
                 lineView.frame = .init(x: actionItem.frame.maxX-0.25, y: 0, width: 0.5, height: actionItem.frame.height)
             }
-            // 顶分割线
+            // Split line
             let lineView = UIView.init()
             self.actionView.addSubview(lineView)
             if #available(iOS 13.0, *) {
@@ -522,14 +535,14 @@ public class WTAlertController: WTAlertBaseController {
             lineView.frame = .init(x: 0, y: 0, width: maxWidth, height: 0.5)
             self.actionView.frame.size.height = 50
         } else {
-            // 纵向布局actionItem
+            // Vertical layout actionItem
             var actionTop: CGFloat = 0
             for actionItem in defaultActions {
                 self.actionView.addSubview(actionItem)
                 actionItem.frame.origin.y = actionTop
                 actionItem.frame.size.width = maxWidth
                 if actionTop > 0 {
-                    // 顶分割线
+                    // Split line
                     let lineView = UIView.init()
                     self.actionView.addSubview(lineView)
                     if #available(iOS 13.0, *) {
@@ -560,7 +573,7 @@ public class WTAlertController: WTAlertBaseController {
                 }
                 actionItem.frame.size.width = maxWidth
                 if item.offset == 0 && self.style == .actionSheet && actionTop > 0 {
-                    // cancel分割
+                    // Cancel split line
                     let lineView = UIView.init()
                     self.actionView.addSubview(lineView)
                     if #available(iOS 13.0, *) {
@@ -579,7 +592,7 @@ public class WTAlertController: WTAlertBaseController {
                     }
                     lineView.frame = .init(x: 0, y: actionItem.frame.minY-8, width: maxWidth, height: 8)
                 } else if actionTop > 0 {
-                    // 顶分割线
+                    // Split line
                     let lineView = UIView.init()
                     self.actionView.addSubview(lineView)
                     if #available(iOS 13.0, *) {
@@ -609,12 +622,12 @@ public class WTAlertController: WTAlertBaseController {
 
     private var actions: [WTAlertAction] = []
 
-    /// 添加action
+    /// Add action
     public func addAction(_ action: WTAlertAction) {
         self.actions.append(action)
     }
 
-    /// action点击事件
+    /// Action event
     @objc private func actionClick(actionBtn: WTActionButton) {
         if let action = self.actions.first(where: { $0.identify == actionBtn.accessibilityIdentifier }), action.isEnabled {
             if self.config.dismissWhenTouchAction {
@@ -628,13 +641,12 @@ public class WTAlertController: WTAlertBaseController {
     }
 
     override func didDismissAlert() {
-        /// 触发第一个cancel类型
         if let action = self.actions.first(where: { $0.style == .cancel && $0.isEnabled }) {
             action.handler?(action)
         }
     }
 
-    // MARK: - 自定义顶部titleView
+    // MARK: - custom titleView
 
     public typealias ConfigurationHandler = (_ width: CGFloat) -> UIView
 
@@ -646,7 +658,7 @@ public class WTAlertController: WTAlertBaseController {
         self.titleViews
     }
 
-    /// 添加自定义titleView
+    /// Add titleView
     public func addTitleViews(configurationHandler: @escaping ConfigurationHandler) {
         self.configurationHandlers.append(configurationHandler)
     }

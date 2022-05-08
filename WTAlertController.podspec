@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
   spec.name         = "WTAlertController"
-  spec.version      = "0.0.5"
-  spec.summary      = "一款类似UIAlertController的自定义Alert样式"
+  spec.version      = "0.0.6"
+  spec.summary      = "A custom AlertController similar to UIAlertController"
   spec.homepage     = "https://github.com/Sean-LWT/Alert"
   spec.license      = "MIT"
   spec.author       = { "Sean" => "820378591@qq.com" }

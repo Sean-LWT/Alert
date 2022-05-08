@@ -9,10 +9,17 @@ import UIKit
 
 class WTActionButton: UIButton {
 
-    /// 内容
+    let touchView = UIView.init()
+
+    /// Content
     let label = UILabel.init()
 
+    /// Content layout insets from superView
     var insets = UIEdgeInsets.zero
+
+    override var buttonType: UIButton.ButtonType {
+        .custom
+    }
 
     convenience init(title: String?) {
         self.init(frame: .zero)
@@ -20,10 +27,11 @@ class WTActionButton: UIButton {
     }
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .clear
         self.clipsToBounds = true
 
-        self.label.backgroundColor = self.backgroundColor
+        self.touchView.isUserInteractionEnabled = false
+        self.touchView.isHidden = true
+        self.addSubview(self.touchView)
         self.addSubview(self.label)
     }
     required init?(coder: NSCoder) {
@@ -31,6 +39,7 @@ class WTActionButton: UIButton {
     }
     override func layoutSubviews() {
         super.layoutSubviews()
+        self.touchView.frame = self.bounds
         self.label.frame = .init(x: self.insets.left, y: self.insets.top, width: self.bounds.size.width-self.insets.left-self.insets.right, height: self.bounds.size.height-self.insets.top-self.insets.bottom)
     }
     override func sizeThatFits(_ size: CGSize) -> CGSize {
@@ -44,6 +53,25 @@ class WTActionButton: UIButton {
             realSize.height = size.height
         }
         return realSize
+    }
+
+    override func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
+        defer {
+            self.touchView.isHidden = false
+        }
+        return super.beginTracking(touch, with: event)
+    }
+    override func continueTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
+        self.touchView.isHidden = !self.isTouchInside
+        return super.continueTracking(touch, with: event)
+    }
+    override func cancelTracking(with event: UIEvent?) {
+        self.touchView.isHidden = true
+        super.cancelTracking(with: event)
+    }
+    override func endTracking(_ touch: UITouch?, with event: UIEvent?) {
+        self.touchView.isHidden = true
+        super.endTracking(touch, with: event)
     }
 
 }

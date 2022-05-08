@@ -10,7 +10,7 @@ import UIKit
 public class WTAlertBaseController: UIViewController {
 
     public struct Animate {
-        /// 动画时间
+        /// Animation time
         public var animateTime: TimeInterval {
             switch self.animatedStyle {
             case .actionSheet:
@@ -19,7 +19,7 @@ public class WTAlertBaseController: UIViewController {
                 return 0.15
             }
         }
-        /// 动画样式
+        /// Animation style
         public enum AnimatedStyle {
             case alert
             case actionSheet
@@ -32,12 +32,10 @@ public class WTAlertBaseController: UIViewController {
     }
     private var animate = Animate.init()
 
-    /// alert配置
-    public var config: WTAlertConfig = .init()
+    /// Alert config
+    public var config: WTAlertConfig = .default
 
-    /// 背景关闭按钮
     let maskView = UIView.init()
-    /// 布局视图
     let contentView = UIView.init()
 
     init(animate: Animate) {
@@ -76,8 +74,9 @@ public class WTAlertBaseController: UIViewController {
         self.view.addSubview(self.contentView)
     }
 
-    // MARK: - 事件处理
-    /// 点击背景关闭事件
+    // MARK: - event
+
+    /// Close event
     @objc func closeClick() {
         if self.config.dismissWhenTouchOutside {
             self.maskView.isUserInteractionEnabled = false
@@ -91,7 +90,7 @@ public class WTAlertBaseController: UIViewController {
 
 extension WTAlertBaseController: UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning {
 
-    // MARK: - 转场动画
+    // MARK: - transition animation
 
     public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return self
@@ -106,7 +105,7 @@ extension WTAlertBaseController: UIViewControllerTransitioningDelegate, UIViewCo
     public func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         if transitionContext.viewController(forKey: .to) == self {
             let contentView = transitionContext.containerView
-            // 开启动画
+            // Start transition animation
             contentView.addSubview(self.view)
             self.maskView.isUserInteractionEnabled = false
             switch self.animate.animatedStyle {
@@ -132,7 +131,7 @@ extension WTAlertBaseController: UIViewControllerTransitioningDelegate, UIViewCo
                 }
             }
         } else if transitionContext.viewController(forKey: .from) == self {
-            // 关闭动画
+            // Close transition animation
             self.maskView.isUserInteractionEnabled = false
             switch self.animate.animatedStyle {
             case .alert:

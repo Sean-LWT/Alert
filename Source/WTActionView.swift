@@ -11,7 +11,6 @@ class WTActionView: UIView {
 
     private(set) var customView: UIView!
 
-    /// 展示类型
     private(set) var style: WTAlertAction.Style!
 
     init(style: WTAlertAction.Style, customView: UIView) {
