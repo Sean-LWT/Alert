@@ -7,6 +7,6 @@ Pod::Spec.new do |spec|
   spec.author       = { "Sean" => "820378591@qq.com" }
   spec.source       = { :git => "https://github.com/Sean-LWT/Alert.git", :tag => "#{spec.version}" }
   spec.ios.deployment_target = '11.0'
-  spec.source_files  = 'WTAlertController/Source/WTAlertController/*.swift'
+  spec.source_files  = 'WTAlertController/Sources/WTAlertController/*.swift'
   spec.swift_version = '5.0'
 end
