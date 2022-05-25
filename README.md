@@ -29,7 +29,7 @@ WTAlertController是一个基于Swift的高可用视图框架。基于iOS原生�
 
 ## 要求
 
-- iOS 12.0+
+- iOS 11.0+
 - Xcode 13.0+
 - Swift 5.5+
 
@@ -42,6 +42,18 @@ WTAlertController是一个基于Swift的高可用视图框架。基于iOS原生�
 ```ruby
 pod 'WTAlertController'
 ```
+
+### Swift Package Manager
+
+```swift
+dependencies: [
+    .Package(url: "https://github.com/Sean-LWT/Alert.git")
+]
+```
+
+### 其他
+
+WTAlertController/Sources/WTAlertController/ 将此目录下的文件拷贝到项目中即可
 
 ## 使用
 
