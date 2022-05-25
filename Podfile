@@ -3,7 +3,7 @@ source 'https://cdn.cocoapods.org/'
 
 platform :ios, '11.0'
 
-target 'Alert' do
+target 'AlertDemo' do
 
   use_frameworks!
 
