@@ -53,7 +53,7 @@ dependencies: [
 
 ### 其他
 
-WTAlertController/Sources/WTAlertController/ 将此目录下的文件拷贝到项目中即可
+Sources/WTAlertController/ 将此目录下的文件拷贝到项目中即可
 
 ## 使用
 
