@@ -45,6 +45,7 @@ pod 'WTAlertController'
 
 ### Swift Package Manager
 
+添加Package
 ```swift
 dependencies: [
     .Package(url: "https://github.com/Sean-LWT/Alert.git")
