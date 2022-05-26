@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import WTAlertController
 
 class ViewController: UIViewController {
 

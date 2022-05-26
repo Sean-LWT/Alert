@@ -11,8 +11,13 @@
 		14629119283E8860007D6DD1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14629117283E8860007D6DD1 /* LaunchScreen.storyboard */; };
 		14629122283E88E4007D6DD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14629120283E88E4007D6DD1 /* AppDelegate.swift */; };
 		14629123283E88E4007D6DD1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14629121283E88E4007D6DD1 /* ViewController.swift */; };
-		1462912F283E9050007D6DD1 /* WTAlertController in Frameworks */ = {isa = PBXBuildFile; productRef = 1462912E283E9050007D6DD1 /* WTAlertController */; };
 		14629132283E9122007D6DD1 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 14629131283E9122007D6DD1 /* .swiftlint.yml */; };
+		149403FB283FCE9700BA649D /* WTAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149403F5283FCE9700BA649D /* WTAlertController.swift */; };
+		149403FC283FCE9700BA649D /* WTAlertConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149403F6283FCE9700BA649D /* WTAlertConfig.swift */; };
+		149403FD283FCE9700BA649D /* WTActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149403F7283FCE9700BA649D /* WTActionView.swift */; };
+		149403FE283FCE9700BA649D /* WTActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149403F8283FCE9700BA649D /* WTActionButton.swift */; };
+		149403FF283FCE9700BA649D /* WTAlertBaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149403F9283FCE9700BA649D /* WTAlertBaseController.swift */; };
+		14940400283FCE9700BA649D /* WTAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149403FA283FCE9700BA649D /* WTAlertAction.swift */; };
 		5EA9B3C4E64B9E13895FF27B /* Pods_AlertDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B095FBA87BA60A77A63C4BB4 /* Pods_AlertDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -24,8 +29,13 @@
 		1462911A283E8860007D6DD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14629120283E88E4007D6DD1 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14629121283E88E4007D6DD1 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		1462912D283E8FF9007D6DD1 /* WTAlertController */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = WTAlertController; sourceTree = "<group>"; };
 		14629131283E9122007D6DD1 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		149403F5283FCE9700BA649D /* WTAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WTAlertController.swift; sourceTree = "<group>"; };
+		149403F6283FCE9700BA649D /* WTAlertConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WTAlertConfig.swift; sourceTree = "<group>"; };
+		149403F7283FCE9700BA649D /* WTActionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WTActionView.swift; sourceTree = "<group>"; };
+		149403F8283FCE9700BA649D /* WTActionButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WTActionButton.swift; sourceTree = "<group>"; };
+		149403F9283FCE9700BA649D /* WTAlertBaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WTAlertBaseController.swift; sourceTree = "<group>"; };
+		149403FA283FCE9700BA649D /* WTAlertAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WTAlertAction.swift; sourceTree = "<group>"; };
 		B095FBA87BA60A77A63C4BB4 /* Pods_AlertDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AlertDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F584A520E775F15145FFE121 /* Pods-AlertDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlertDemo.release.xcconfig"; path = "Target Support Files/Pods-AlertDemo/Pods-AlertDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -35,7 +45,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1462912F283E9050007D6DD1 /* WTAlertController in Frameworks */,
 				5EA9B3C4E64B9E13895FF27B /* Pods_AlertDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -47,7 +56,7 @@
 			isa = PBXGroup;
 			children = (
 				14629131283E9122007D6DD1 /* .swiftlint.yml */,
-				1462912C283E8FF9007D6DD1 /* Packages */,
+				149403F3283FCE9700BA649D /* Sources */,
 				1462910B283E885E007D6DD1 /* AlertDemo */,
 				1462910A283E885E007D6DD1 /* Products */,
 				6179D850528366A285C99041 /* Pods */,
@@ -75,12 +84,25 @@
 			path = AlertDemo;
 			sourceTree = "<group>";
 		};
-		1462912C283E8FF9007D6DD1 /* Packages */ = {
+		149403F3283FCE9700BA649D /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				1462912D283E8FF9007D6DD1 /* WTAlertController */,
+				149403F4283FCE9700BA649D /* WTAlertController */,
 			);
-			name = Packages;
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		149403F4283FCE9700BA649D /* WTAlertController */ = {
+			isa = PBXGroup;
+			children = (
+				149403F5283FCE9700BA649D /* WTAlertController.swift */,
+				149403F6283FCE9700BA649D /* WTAlertConfig.swift */,
+				149403F7283FCE9700BA649D /* WTActionView.swift */,
+				149403F8283FCE9700BA649D /* WTActionButton.swift */,
+				149403F9283FCE9700BA649D /* WTAlertBaseController.swift */,
+				149403FA283FCE9700BA649D /* WTAlertAction.swift */,
+			);
+			path = WTAlertController;
 			sourceTree = "<group>";
 		};
 		6179D850528366A285C99041 /* Pods */ = {
@@ -120,7 +142,6 @@
 			);
 			name = AlertDemo;
 			packageProductDependencies = (
-				1462912E283E9050007D6DD1 /* WTAlertController */,
 			);
 			productName = AlertDemo;
 			productReference = 14629109283E885E007D6DD1 /* AlertDemo.app */;
@@ -239,7 +260,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				14629123283E88E4007D6DD1 /* ViewController.swift in Sources */,
+				149403FB283FCE9700BA649D /* WTAlertController.swift in Sources */,
+				149403FE283FCE9700BA649D /* WTActionButton.swift in Sources */,
+				149403FD283FCE9700BA649D /* WTActionView.swift in Sources */,
 				14629122283E88E4007D6DD1 /* AppDelegate.swift in Sources */,
+				149403FC283FCE9700BA649D /* WTAlertConfig.swift in Sources */,
+				149403FF283FCE9700BA649D /* WTAlertBaseController.swift in Sources */,
+				14940400283FCE9700BA649D /* WTAlertAction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,7 +415,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -420,7 +447,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -456,13 +483,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		1462912E283E9050007D6DD1 /* WTAlertController */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = WTAlertController;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 14629101283E885E007D6DD1 /* Project object */;
 }
