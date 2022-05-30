@@ -6,7 +6,7 @@
 [![Version](https://img.shields.io/cocoapods/v/WTAlertController.svg?style=flat-square)](http://cocoapods.org/pods/WTAlertController)
 [![License](http://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat)](http://mit-license.org)
 
-WTAlertController是一个基于Swift的高可用视图框架。基于iOS原生的UIAlertController功能进行封装，并提供了其他自定义样式的接口，扩展灵活，能让App快速创建自己想要的样式。
+WTAlertController是一个基于Swift开发的Alert UI。基于iOS原生的UIAlertController功能进行封装，并提供了其他自定义样式的接口，扩展灵活，能让App快速创建自己想要的样式。
 
 
 ## 效果预览
