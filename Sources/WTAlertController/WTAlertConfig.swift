@@ -73,5 +73,13 @@ public struct WTAlertConfig {
     /// ActionButton touch color
     public var actionTouchColor = UIColor.gray.withAlphaComponent(0.2)
     public var actionTouchDarkColor = UIColor.gray.withAlphaComponent(0.2)
+    /// TextField background color
+    public var textFieldBackgroundColor = UIColor.gray.withAlphaComponent(0.1)
+    public var textFieldDarkBackgroundColor = UIColor.gray.withAlphaComponent(0.1)
+    /// TextField text color
+    public var textFieldTextColor = UIColor.black
+    public var textFieldDarkTextColor = UIColor.white
+    /// TextField font
+    public var textFieldFont = UIFont.systemFont(ofSize: 16)
 
 }

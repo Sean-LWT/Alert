@@ -18,11 +18,11 @@
 		149403FE283FCE9700BA649D /* WTActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149403F8283FCE9700BA649D /* WTActionButton.swift */; };
 		149403FF283FCE9700BA649D /* WTAlertBaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149403F9283FCE9700BA649D /* WTAlertBaseController.swift */; };
 		14940400283FCE9700BA649D /* WTAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149403FA283FCE9700BA649D /* WTAlertAction.swift */; };
-		5EA9B3C4E64B9E13895FF27B /* Pods_AlertDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B095FBA87BA60A77A63C4BB4 /* Pods_AlertDemo.framework */; };
+		14E9C7F328C4F93B00E64757 /* WTAlertTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E9C7F228C4F93B00E64757 /* WTAlertTextField.swift */; };
+		19E71BA71FB1F72AB7A822AE /* Pods_AlertDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0C941D24634470A6E04EE95 /* Pods_AlertDemo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0EEAF0D284AF036D5D23DAD9 /* Pods-AlertDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlertDemo.debug.xcconfig"; path = "Target Support Files/Pods-AlertDemo/Pods-AlertDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		14629109283E885E007D6DD1 /* AlertDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlertDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14629115283E8860007D6DD1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		14629118283E8860007D6DD1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -36,8 +36,10 @@
 		149403F8283FCE9700BA649D /* WTActionButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WTActionButton.swift; sourceTree = "<group>"; };
 		149403F9283FCE9700BA649D /* WTAlertBaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WTAlertBaseController.swift; sourceTree = "<group>"; };
 		149403FA283FCE9700BA649D /* WTAlertAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WTAlertAction.swift; sourceTree = "<group>"; };
-		B095FBA87BA60A77A63C4BB4 /* Pods_AlertDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AlertDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F584A520E775F15145FFE121 /* Pods-AlertDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlertDemo.release.xcconfig"; path = "Target Support Files/Pods-AlertDemo/Pods-AlertDemo.release.xcconfig"; sourceTree = "<group>"; };
+		14E9C7F228C4F93B00E64757 /* WTAlertTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTAlertTextField.swift; sourceTree = "<group>"; };
+		87645CDB2AD6DD94CC46017C /* Pods-AlertDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlertDemo.release.xcconfig"; path = "Target Support Files/Pods-AlertDemo/Pods-AlertDemo.release.xcconfig"; sourceTree = "<group>"; };
+		B0C941D24634470A6E04EE95 /* Pods_AlertDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AlertDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F575B36E15A413B1C786560F /* Pods-AlertDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlertDemo.debug.xcconfig"; path = "Target Support Files/Pods-AlertDemo/Pods-AlertDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,7 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5EA9B3C4E64B9E13895FF27B /* Pods_AlertDemo.framework in Frameworks */,
+				19E71BA71FB1F72AB7A822AE /* Pods_AlertDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,7 +62,7 @@
 				1462910B283E885E007D6DD1 /* AlertDemo */,
 				1462910A283E885E007D6DD1 /* Products */,
 				6179D850528366A285C99041 /* Pods */,
-				ED33E9D411D8D9AB7D845A9E /* Frameworks */,
+				2C32743C00FC4E06C3D2BADE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,25 +103,26 @@
 				149403F8283FCE9700BA649D /* WTActionButton.swift */,
 				149403F9283FCE9700BA649D /* WTAlertBaseController.swift */,
 				149403FA283FCE9700BA649D /* WTAlertAction.swift */,
+				14E9C7F228C4F93B00E64757 /* WTAlertTextField.swift */,
 			);
 			path = WTAlertController;
+			sourceTree = "<group>";
+		};
+		2C32743C00FC4E06C3D2BADE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B0C941D24634470A6E04EE95 /* Pods_AlertDemo.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		6179D850528366A285C99041 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				0EEAF0D284AF036D5D23DAD9 /* Pods-AlertDemo.debug.xcconfig */,
-				F584A520E775F15145FFE121 /* Pods-AlertDemo.release.xcconfig */,
+				F575B36E15A413B1C786560F /* Pods-AlertDemo.debug.xcconfig */,
+				87645CDB2AD6DD94CC46017C /* Pods-AlertDemo.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		ED33E9D411D8D9AB7D845A9E /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				B095FBA87BA60A77A63C4BB4 /* Pods_AlertDemo.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -129,20 +132,18 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1462911D283E8860007D6DD1 /* Build configuration list for PBXNativeTarget "AlertDemo" */;
 			buildPhases = (
-				56FC76CF74C7B2A586FB93F4 /* [CP] Check Pods Manifest.lock */,
+				9152F956EA0D47C92EF293A8 /* [CP] Check Pods Manifest.lock */,
 				14629105283E885E007D6DD1 /* Sources */,
 				14629106283E885E007D6DD1 /* Frameworks */,
 				14629107283E885E007D6DD1 /* Resources */,
-				06D52034FDCF4A624B5A631A /* [CP] Embed Pods Frameworks */,
 				14629130283E90F8007D6DD1 /* SwiftLint */,
+				43BF8CC6B3AA3339E3D16353 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = AlertDemo;
-			packageProductDependencies = (
-			);
 			productName = AlertDemo;
 			productReference = 14629109283E885E007D6DD1 /* AlertDemo.app */;
 			productType = "com.apple.product-type.application";
@@ -195,23 +196,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		06D52034FDCF4A624B5A631A /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AlertDemo/Pods-AlertDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AlertDemo/Pods-AlertDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AlertDemo/Pods-AlertDemo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		14629130283E90F8007D6DD1 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -228,9 +212,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint\n${PODS_ROOT}/SwiftLint/swiftlint autocorrect\n";
+			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint\n";
 		};
-		56FC76CF74C7B2A586FB93F4 /* [CP] Check Pods Manifest.lock */ = {
+		43BF8CC6B3AA3339E3D16353 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AlertDemo/Pods-AlertDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AlertDemo/Pods-AlertDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AlertDemo/Pods-AlertDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9152F956EA0D47C92EF293A8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -266,6 +267,7 @@
 				14629122283E88E4007D6DD1 /* AppDelegate.swift in Sources */,
 				149403FC283FCE9700BA649D /* WTAlertConfig.swift in Sources */,
 				149403FF283FCE9700BA649D /* WTAlertBaseController.swift in Sources */,
+				14E9C7F328C4F93B00E64757 /* WTAlertTextField.swift in Sources */,
 				14940400283FCE9700BA649D /* WTAlertAction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -400,7 +402,7 @@
 		};
 		1462911E283E8860007D6DD1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0EEAF0D284AF036D5D23DAD9 /* Pods-AlertDemo.debug.xcconfig */;
+			baseConfigurationReference = F575B36E15A413B1C786560F /* Pods-AlertDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -432,7 +434,7 @@
 		};
 		1462911F283E8860007D6DD1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F584A520E775F15145FFE121 /* Pods-AlertDemo.release.xcconfig */;
+			baseConfigurationReference = 87645CDB2AD6DD94CC46017C /* Pods-AlertDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

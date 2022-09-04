@@ -650,6 +650,8 @@ public class WTAlertController: WTAlertBaseController {
 
     public typealias ConfigurationHandler = (_ width: CGFloat) -> UIView
 
+    public typealias ConfigurationTextFieldHandler = (_ textField: UITextField, _ width: CGFloat) -> Void
+
     private var configurationHandlers: [ConfigurationHandler] = []
 
     private var titleViews: [UIView] = []
@@ -659,8 +661,51 @@ public class WTAlertController: WTAlertBaseController {
     }
 
     /// Add titleView
-    public func addTitleViews(configurationHandler: @escaping ConfigurationHandler) {
+    public func addTitleView(configurationHandler: @escaping ConfigurationHandler) {
         self.configurationHandlers.append(configurationHandler)
+    }
+
+    /// Add textFieldView
+    public func addTextFieldView(configurationTextFieldHandler: @escaping ConfigurationTextFieldHandler) {
+        let backgroundColor: UIColor
+        let textColor: UIColor
+        if #available(iOS 13.0, *) {
+            backgroundColor = .init(dynamicProvider: { traitCollection in
+                switch traitCollection.userInterfaceStyle {
+                case .light:
+                    return self.config.textFieldBackgroundColor
+                default:
+                    return self.config.textFieldDarkBackgroundColor
+                }
+            })
+            textColor = UIColor.init(dynamicProvider: { traitCollection in
+                switch traitCollection.userInterfaceStyle {
+                case .light:
+                    return self.config.textFieldTextColor
+                default:
+                    return self.config.textFieldDarkTextColor
+                }
+            })
+        } else {
+            textColor = self.config.textFieldTextColor
+            backgroundColor = self.config.textFieldBackgroundColor
+        }
+        let font = self.config.textFieldFont
+        self.configurationHandlers.append { width in
+            let textField = WTAlertTextField.init()
+            textField.backgroundColor = backgroundColor
+            textField.textColor = textColor
+            textField.font = font
+            textField.layer.cornerRadius = 4
+            textField.layer.masksToBounds = true
+            textField.placeholder = "请输入内容"
+            textField.leftView = UIView.init(frame: .init(x: 0, y: 0, width: 8, height: 8))
+            textField.leftViewMode = .always
+            textField.clearButtonMode = .whileEditing
+            configurationTextFieldHandler(textField, width)
+            textField.frame = .init(x: 0, y: 0, width: width, height: 40)
+            return textField
+        }
     }
 
 }
