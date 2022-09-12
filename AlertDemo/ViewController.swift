@@ -46,7 +46,7 @@ class ViewController: UIViewController {
         WTAlertConfig.default = config
     }
     @objc func openAlert(alertBtn: UIButton) {
-        let alert = WTAlertController.init(title: "温馨提示", message: "请选择一个内容", preferredStyle: .actionSheet)
+        let alert = WTAlertController.init(title: "温馨提示", message: "请选择一个内容\n请选择一个内容请选择一个内容", preferredStyle: .actionSheet)
         alert.addTextFieldView { textField, width in
             textField.text = "宽度 \(width)"
         }

@@ -78,6 +78,7 @@ public class WTAlertBaseController: UIViewController {
 
     /// Close event
     @objc func closeClick() {
+        self.view.endEditing(true)
         if self.config.dismissWhenTouchOutside {
             self.maskView.isUserInteractionEnabled = false
             self.dismiss(animated: true, completion: nil)

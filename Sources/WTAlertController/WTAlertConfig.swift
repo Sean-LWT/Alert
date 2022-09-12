@@ -81,5 +81,7 @@ public struct WTAlertConfig {
     public var textFieldDarkTextColor = UIColor.white
     /// TextField font
     public var textFieldFont = UIFont.systemFont(ofSize: 16)
+    /// TextField optimized adjust position
+    public var textFieldOptimizedAdjustPosition = true
 
 }

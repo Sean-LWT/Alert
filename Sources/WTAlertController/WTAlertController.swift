@@ -21,15 +21,15 @@ public class WTAlertController: WTAlertBaseController {
     private var alertTitle: String?
     private var alertMessage: String?
 
-    private let titleView = UIScrollView.init()
-    private let actionView = UIScrollView.init()
+    let titleView = UIScrollView.init()
+    let actionView = UIScrollView.init()
     /// TitleView height
     private var titleViewHeight: CGFloat = 0.0
     /// ActionView height
     private var actionViewHeight: CGFloat = 0.0
 
     /// Title/action split line
-    private let lineView = UIView.init()
+    let lineView = UIView.init()
 
     public convenience init() {
         self.init(animate: .init())
@@ -192,9 +192,17 @@ public class WTAlertController: WTAlertBaseController {
                 let titleViewMaxHeight: CGFloat
                 switch self.style {
                 case .alert:
-                    titleViewMaxHeight = maxHeight-75
+                    if self.actionViewHeight > 50 {
+                        titleViewMaxHeight = maxHeight-75
+                    } else {
+                        titleViewMaxHeight = maxHeight-50
+                    }
                 case .actionSheet:
-                    titleViewMaxHeight = maxHeight-55*1.5
+                    if self.actionViewHeight > 55 {
+                        titleViewMaxHeight = maxHeight-80
+                    } else {
+                        titleViewMaxHeight = maxHeight-55
+                    }
                 }
                 if self.titleViewHeight > titleViewMaxHeight {
                     // Over titleView max height
@@ -667,43 +675,47 @@ public class WTAlertController: WTAlertBaseController {
 
     /// Add textFieldView
     public func addTextFieldView(configurationTextFieldHandler: @escaping ConfigurationTextFieldHandler) {
+        let textFieldTextColor = self.config.textFieldTextColor
+        let textFieldDarkTextColor = self.config.textFieldDarkTextColor
+        let textFieldBackgroundColor = self.config.textFieldBackgroundColor
+        let textFieldDarkBackgroundColor = self.config.textFieldDarkBackgroundColor
         let backgroundColor: UIColor
         let textColor: UIColor
         if #available(iOS 13.0, *) {
             backgroundColor = .init(dynamicProvider: { traitCollection in
                 switch traitCollection.userInterfaceStyle {
                 case .light:
-                    return self.config.textFieldBackgroundColor
+                    return textFieldBackgroundColor
                 default:
-                    return self.config.textFieldDarkBackgroundColor
+                    return textFieldDarkBackgroundColor
                 }
             })
             textColor = UIColor.init(dynamicProvider: { traitCollection in
                 switch traitCollection.userInterfaceStyle {
                 case .light:
-                    return self.config.textFieldTextColor
+                    return textFieldTextColor
                 default:
-                    return self.config.textFieldDarkTextColor
+                    return textFieldDarkTextColor
                 }
             })
         } else {
-            textColor = self.config.textFieldTextColor
-            backgroundColor = self.config.textFieldBackgroundColor
+            textColor = textFieldTextColor
+            backgroundColor = textFieldBackgroundColor
         }
         let font = self.config.textFieldFont
-        self.configurationHandlers.append { width in
+        self.configurationHandlers.append {[weak self] width in
             let textField = WTAlertTextField.init()
             textField.backgroundColor = backgroundColor
             textField.textColor = textColor
             textField.font = font
             textField.layer.cornerRadius = 4
             textField.layer.masksToBounds = true
-            textField.placeholder = "请输入内容"
             textField.leftView = UIView.init(frame: .init(x: 0, y: 0, width: 8, height: 8))
             textField.leftViewMode = .always
             textField.clearButtonMode = .whileEditing
             configurationTextFieldHandler(textField, width)
             textField.frame = .init(x: 0, y: 0, width: width, height: 40)
+            textField.alertController = self
             return textField
         }
     }
